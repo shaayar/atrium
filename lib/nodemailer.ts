@@ -1,17 +1,21 @@
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+import nodemailer from 'nodemailer'
 
 export async function sendWaitlistConfirmation(email: string) {
   try {
-    // For testing: only send to your registered email
-    if (email !== '22ce020@gardividyapith.ac.in') {
-      console.log('Skipping email - only sending to test address during development')
-      return { success: true, data: null }
-    }
+    // Create transporter using Gmail
+    const transporter = nodemailer.createTransporter({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    })
 
-    const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+    // Verify transporter configuration
+    await transporter.verify()
+
+    const { data, error } = await transporter.sendMail({
+      from: `"Atrium" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: 'Welcome to Atrium',
       html: `
@@ -72,11 +76,6 @@ export async function sendWaitlistConfirmation(email: string) {
         </div>
       `,
     })
-
-    if (error) {
-      console.error('Resend error:', error)
-      return { success: false, error }
-    }
 
     return { success: true, data }
   } catch (error) {
