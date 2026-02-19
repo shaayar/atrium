@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer'
 export async function sendWaitlistConfirmation(email: string) {
   try {
     // Create transporter using Gmail
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.GMAIL_USER,
@@ -14,7 +14,7 @@ export async function sendWaitlistConfirmation(email: string) {
     // Verify transporter configuration
     await transporter.verify()
 
-    const { data, error } = await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Atrium" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: 'Welcome to Atrium',
@@ -77,7 +77,7 @@ export async function sendWaitlistConfirmation(email: string) {
       `,
     })
 
-    return { success: true, data }
+    return { success: true, data: info }
   } catch (error) {
     console.error('Email send error:', error)
     return { success: false, error }
