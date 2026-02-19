@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Upload, Building, Footprints } from 'lucide-react';
@@ -33,7 +35,7 @@ const Manifesto: React.FC = () => {
             transition={{ duration: 1 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-6xl font-serif italic font-light leading-tight">
+            <h2 className="text-4xl md:text-6xl font-serif font-light leading-tight">
               Atrium is your personal museum.
             </h2>
           </motion.div>
@@ -48,9 +50,9 @@ const Manifesto: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.15, duration: 0.8, ease: "easeOut" }}
-                  className="group relative"
+                  className="group relative h-full"
                 >
-                  <div className="flex flex-col items-center text-center space-y-6 p-8 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm hover:border-white/20 transition-all duration-500 hover:bg-white/10">
+                  <div className="flex flex-col items-center text-center space-y-6 p-8 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm hover:border-white/20 transition-all duration-500 hover:bg-white/10 h-full">
                     {/* Icon Container */}
                     <motion.div 
                       className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-all duration-500"

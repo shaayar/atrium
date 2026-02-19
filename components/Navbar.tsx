@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
 const Navbar: React.FC = () => {
   return (
@@ -12,23 +15,24 @@ const Navbar: React.FC = () => {
     >
       {/* Left: Tagline */}
       <div className="w-1/3 hidden md:block">
-        <span className="text-[10px] uppercase tracking-widest-2xl opacity-60">
+        <span className="text-sm uppercase tracking-widest-2xl font-serif opacity-60">
           Architectural Digital Spaces
         </span>
       </div>
 
       {/* Center: Brand */}
-      <div className="w-1/3 flex justify-start md:justify-center pointer-events-auto">
-        <a href="#" className="font-serif italic text-2xl tracking-[0.2em] hover:opacity-80 transition-opacity">
+      <div className="w-full md:w-1/3 flex justify-center pointer-events-auto">
+        <a href="#" className="font-lecherously font-bold text-2xl tracking-[0.2em] hover:opacity-80 transition-opacity">
           ATRIUM
         </a>
       </div>
 
       {/* Right: CTA */}
-      <div className="w-1/3 flex justify-end pointer-events-auto">
+      <div className="w-1/3 hidden md:flex justify-end pointer-events-auto ">
         <a 
           href="#waitlist"
           className="hero-btn"
+          onClick={() => analytics.trackButtonInteractions()}
         >
           <div className="hero-border-line h-l"></div>
           <div className="hero-border-line h-r"></div>

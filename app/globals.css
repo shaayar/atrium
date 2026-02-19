@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* Font Face Definitions */
+@font-face {
+  font-family: 'Lecherously';
+  src: url('/fonts/Lecherously-Regular-BF6470200238bdc.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lecherously';
+  src: url('/fonts/Lecherously-Bold-BF6470200214df0.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lecherously';
+  src: url('/fonts/Lecherously-Italic-BF6470200235d96.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barcola';
+  src: url('/fonts/BarcolaexpandedBold-lx475.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Elcorita';
+  src: url('/fonts/elcorita-demo.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --surface: #111111;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-lecherously: 'Lecherously', serif;
+  --font-barcola: 'Barcola', sans-serif;
+  --font-elcorita: 'Elcorita', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  selection: bg-white text-black;
+}
+
+/* Hero Button Custom Styles */
+.hero-btn {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 16px 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.hero-btn-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+}
+
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(
+      circle at 50% 50%,
+      #0000 0,
+      #0000 20%,
+      #111111aa 50%
+    ),
+    radial-gradient(ellipse 100% 100%, #fff, #fff0);
+  background-size: 3px 3px, auto auto;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.hero-btn:hover::before {
+  opacity: 0.2;
+}
+
+.hero-border-line {
+  pointer-events: none;
+  position: absolute;
+  --w: 1px;
+  --t: -30px;
+  --s: calc(var(--t) * -1);
+  --e: calc(100% + var(--t));
+  --g: #fff0, #fff3 var(--s), #fffa var(--s), #fff, #fffa var(--e),
+    #fff3 var(--e), #fff0;
+}
+
+.hero-border-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(4px) url(#unopaq);
+  z-index: -2;
+}
+
+.hero-border-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(10px) url(#unopaq);
+  opacity: 0;
+  z-index: -2;
+  transition: 0.3s;
+}
+
+.hero-btn:hover .hero-border-line::after {
+  opacity: 1;
+}
+
+.h-l { left: 0px; }
+.h-r { right: 0px; }
+
+.h-l, .h-r {
+  background: linear-gradient(var(--g));
+  top: var(--t);
+  bottom: var(--t);
+  width: var(--w);
+}
+
+.h-t { top: 0px; }
+.h-b { bottom: 0px; }
+
+.h-t, .h-b {
+  background: linear-gradient(90deg, var(--g));
+  left: var(--t);
+  right: var(--t);
+  height: var(--w);
+}
+
+.hero-btn-text {
+  @apply flex items-center gap-2 relative z-10;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+}
+
+.wordmark-glow {
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+}

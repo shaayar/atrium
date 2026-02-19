@@ -7,13 +7,13 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           
           <div className="order-2 md:order-1">
-            <p className="text-[9px] uppercase tracking-[0.4em] text-white/20 hover:text-white/40 transition-colors">
+            <p className="text-xs uppercase tracking-[0.4em] transition-colors">
               © 2026 ATRIUM. A personal digital museum.
             </p>
           </div>
 
           <div className="order-1 md:order-2">
-            <span className="font-serif italic text-xl tracking-[0.4em] opacity-40 hover:opacity-80 transition-opacity cursor-pointer">
+            <span className="font-lecherously font-bold text-xl tracking-[0.4em] transition-opacity cursor-pointer">
               ATRIUM
             </span>
           </div>
@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
               <a 
                 key={item}
                 href="#" 
-                className="text-[9px] uppercase tracking-[0.4em] text-white/30 hover:text-white transition-colors duration-300 relative group"
+                className="text-xs uppercase tracking-[0.4em] transition-colors duration-300 relative group"
               >
                 {item}
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
