@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         </filter>
       </svg>
 
-      <div className="relative z-10 mt-10 flex flex-col items-center">
+      <div className="relative z-10 mt-0 md:mt-10 flex flex-col items-center">
         <motion.h1 
           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)", y: -20 }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)", y: 0 }}
@@ -35,10 +35,10 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="flex flex-col items-center space-y-12"
+          className="flex flex-col items-center space-y-8"
         >
-          <p className="text-lg md:text-2xl font-light tracking-widest text-white/60 font-sans max-w-xl">
-            Your life deserves more than a grid.
+          <p className="text-lg md:text-2xl font-light italic tracking-widest text-white/60 font-serif max-w-xl">
+            Your memories deserve a room, not a feed.
           </p>
 
           <div className="pt-4">
@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
                 <div className="hero-border-line h-t"></div>
                 <div className="hero-border-line h-b"></div>
                 <div className="hero-btn-text">
-                    <span>Join Waitlist</span>
+                    <span>Become a Founding Curator</span>
                     <ArrowRight size={14} />
                 </div>
             </a>

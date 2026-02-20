@@ -61,8 +61,12 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
-  selection: bg-white text-black;
+  font-family: var(--font-serif);
+}
+
+::selection {
+  background: #ffffff;
+  color: #000000;
 }
 
 /* Hero Button Custom Styles */

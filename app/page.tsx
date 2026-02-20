@@ -1,8 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Manifesto from "@/components/Manifesto";
+import EmotionalHook from "@/components/EmotionalHook";
 import Process from "@/components/Process";
-import Philosophy from "@/components/Philosophy";
+import Features from "@/components/Features";
 import Waitlist from "@/components/Waitlist";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
@@ -25,9 +25,9 @@ export default function Home() {
             <div className="h-px w-full bg-linear-to-r from-transparent via-white to-transparent" />
         </div>
 
-        <Manifesto />
+        <EmotionalHook />
         <Process />
-        <Philosophy />
+        <Features />
         <Waitlist />
       </main>
 

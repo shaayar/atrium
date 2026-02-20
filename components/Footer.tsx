@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="py-20 px-6 md:px-10 border-t border-white/5 bg-black text-center md:text-left">
+    <footer className="py-10 px-6 md:px-10 border-t border-white/50 bg-black text-center md:text-left">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
           
           <div className="order-2 md:order-1">
             <p className="text-xs uppercase tracking-[0.4em] transition-colors">
-              © 2026 ATRIUM. A personal digital museum.
+              © 2026 ATRIUM.
             </p>
           </div>
 
@@ -19,13 +19,13 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="order-3 flex gap-12">
-            {['Twitter', 'Instagram', 'Legal'].map((item) => (
+            {[{name:'G Mail', link: 'mailto:shubhamdave171204@gmail.com'}].map((item) => (
               <a 
-                key={item}
-                href="#" 
+                key={item.name}
+                href={item.link} 
                 className="text-xs uppercase tracking-[0.4em] transition-colors duration-300 relative group"
               >
-                {item}
+                {item.name}
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}

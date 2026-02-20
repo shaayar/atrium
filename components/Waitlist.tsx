@@ -42,7 +42,7 @@ const Waitlist: React.FC = () => {
   };
 
   return (
-    <section id="waitlist" className="py-10 px-6 bg-surface/30 backdrop-blur-sm relative border-t border-white/5">
+    <section id="waitlist" className="py-16 px-6 bg-surface/30 backdrop-blur-sm relative border-t border-white/5">
       <div className="max-w-2xl mx-auto text-center">
         
         <motion.div 
@@ -50,14 +50,30 @@ const Waitlist: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20 inline-block"
+          className="inline-block"
         >
           <div className="w-16 h-16 border border-white/10 flex items-center justify-center mx-auto mb-8 rounded-full">
             <DoorOpen strokeWidth={0.5} size={24} className="text-white/80" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-serif italic mb-6 tracking-tight">Enter the Atrium.</h2>
-          <p className="text-white/40 tracking-widest-xl text-sm uppercase">Be among the first to occupy the space.</p>
+          <h2 className="text-5xl md:text-6xl font-serif italic mb-6 tracking-tight">Reserve Your Gallery</h2>
+          <p className="text-white/40 tracking-widest-xl text-sm uppercase mb-8">Limited to 100 founding curators</p>
+          
+          <div className="mb-12 space-y-4">
+            <div className="flex items-center justify-center gap-8 text-white/60 text-md">
+              <span>Beta access: March 2026</span>
+              <span>•</span>
+              <span>First spaces: April 2026</span>
+            </div>
+            <p className="text-white/50 text-md text-center italic max-w-md mx-auto">
+              "I built Atrium because my grandmother's recipes lived in a forgotten folder. Now they live in a kitchen I can walk through."
+            </p>
+            <p className="text-sm uppercase tracking-[0.4em] text-white/70 pt-8">
+              Initial doors opening Mid-2026
+            </p>
+          </div>
         </motion.div>
+
+        
 
         <motion.form 
           initial={{ opacity: 0 }}
@@ -73,9 +89,12 @@ const Waitlist: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="EMAIL ADDRESS"
-              className="w-full bg-transparent border-b border-white/20 px-0 py-4 outline-none focus:border-white transition-all duration-500 text-center tracking-[0.2em] text-sm placeholder:text-white/40 font-light text-white group-hover:border-white/40"
+              className="w-full bg-transparent border-b border-white/20 px-0 py-4 outline-none focus:border-white transition-all duration-500 text-center tracking-[0.2em] text-sm placeholder:text-white/40 font-light text-white group-hover:border-white/40 focus:placeholder:text-white/60 group-hover:placeholder:text-white/50"
               required
             />
+            
+            {/* Input field accent line */}
+            <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/30 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"></div>
           </div>
           
           <button 
@@ -89,14 +108,11 @@ const Waitlist: React.FC = () => {
             <div className="hero-border-line h-t"></div>
             <div className="hero-border-line h-b"></div>
             <div className="hero-btn-text">
-              <span>{status === 'idle' ? 'Join Waitlist' : status === 'loading' ? 'Processing...' : '✓ Successfully Joined'}</span>
+              <span>{status === 'idle' ? 'Reserve Your Space' : status === 'loading' ? 'Processing...' : '✓ Gallery Reserved'}</span>
               {status === 'idle' && <ArrowRight size={14} />}
             </div>
           </button>
 
-          <p className="text-sm uppercase tracking-[0.4em] text-white/70 pt-8">
-            Initial doors opening Mid-2026
-          </p>
         </motion.form>
       </div>
     </section>
